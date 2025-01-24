@@ -4,6 +4,7 @@ import AboutUs from "./modules/AboutUs";
 import SalonHistory from "./modules/SalonHistory";
 import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
+import VideoSection from "./modules/VideoSection";
 
 export default function Home() {
   return (
@@ -33,6 +34,10 @@ export default function Home() {
           {/* Hair Services Section */}
           <HairServices />
         </div>
+      </section>
+
+      <section>
+        <VideoSection />
       </section>
 
       <Footer />
