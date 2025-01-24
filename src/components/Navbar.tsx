@@ -1,4 +1,4 @@
-"use client"; // Esto indica que este es un componente de cliente
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -9,13 +9,13 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-[#0d0d0d] text-[#f0f0f0] shadow-lg">
+    <nav className="bg-[#1c1c1c] text-[#f0eae0] shadow-lg">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-semibold">
           <Link
             href="/"
-            className="hover:text-[#d4af37] transition-colors duration-300"
+            className="hover:text-[#a07855] transition-colors duration-300"
           >
             [Salon Name]
           </Link>
@@ -25,27 +25,36 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6">
           <Link
             href="#about"
-            className="text-lg hover:text-[#d4af37] transition-colors duration-300"
+            className="text-lg relative group"
           >
-            About Us
+            <span className="hover:text-[#a07855] transition-colors duration-300">
+              About Us
+            </span>
+            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="#services"
-            className="text-lg hover:text-[#d4af37] transition-colors duration-300"
+            className="text-lg relative group"
           >
-            Services
+            <span className="hover:text-[#a07855] transition-colors duration-300">
+              Services
+            </span>
+            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="#contact"
-            className="text-lg hover:text-[#d4af37] transition-colors duration-300"
+            className="text-lg relative group"
           >
-            Contact
+            <span className="hover:text-[#a07855] transition-colors duration-300">
+              Contact
+            </span>
+            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
           </Link>
         </div>
 
         {/* Icono de menú para dispositivos móviles */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-[#f0f0f0]">
+          <button onClick={toggleMenu} className="text-[#f0eae0]">
             {isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,25 +92,34 @@ const Navbar = () => {
 
       {/* Menú desplegable para dispositivos móviles */}
       {isOpen && (
-        <div className="md:hidden bg-[#0d0d0d] text-[#f0f0f0]">
+        <div className="md:hidden bg-[#1c1c1c] text-[#f0eae0]">
           <div className="px-6 py-4">
             <Link
               href="#about"
-              className="block text-lg hover:text-[#d4af37] transition-colors duration-300 py-2"
+              className="block text-lg relative group py-2"
             >
-              About Us
+              <span className="hover:text-[#a07855] transition-colors duration-300">
+                About Us
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="#services"
-              className="block text-lg hover:text-[#d4af37] transition-colors duration-300 py-2"
+              className="block text-lg relative group py-2"
             >
-              Services
+              <span className="hover:text-[#a07855] transition-colors duration-300">
+                Services
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="#contact"
-              className="block text-lg hover:text-[#d4af37] transition-colors duration-300 py-2"
+              className="block text-lg relative group py-2"
             >
-              Contact
+              <span className="hover:text-[#a07855] transition-colors duration-300">
+                Contact
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#a07855] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
         </div>
