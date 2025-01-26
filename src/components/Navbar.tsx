@@ -17,7 +17,7 @@ const Navbar = () => {
             href="/"
             className="hover:text-[#824E5F] transition-colors duration-300"
           >
-            [Salon Name]
+            Rosé Reverie
           </Link>
         </div>
 
@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6">
           <Link href="#about" className="text-lg relative group">
             <span className="hover:text-[#824E5F] transition-colors duration-300">
-              About Us
+              À propos de nous
             </span>
             <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
           </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
           <div className="px-6 py-4">
             <Link href="#about" className="block text-lg relative group py-2">
               <span className="hover:text-[#824E5F] transition-colors duration-300">
-                About Us
+                À propos de nous
               </span>
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
             </Link>

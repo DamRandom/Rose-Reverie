@@ -65,3 +65,12 @@ body {
     transform: translateY(10vh); /* Puedes ajustar este valor para hacer el movimiento más o menos pronunciado */
   }
 }
+
+/* Estilos personalizados para sombras en el texto */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
