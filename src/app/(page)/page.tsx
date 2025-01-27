@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
 import VideoSection from "./modules/VideoSection";
 import Spinner from "@/components/Spinner"; 
+import OurTeam from "./modules/OurTeam";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -54,6 +55,10 @@ export default function Home() {
 
       <section>
         <VideoSection />
+      </section>
+
+      <section>
+        <OurTeam/>
       </section>
 
       <Footer />
