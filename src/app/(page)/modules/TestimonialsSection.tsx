@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const testimonials = [
   {
@@ -16,19 +18,48 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <section className="p-10 bg-[color:var(--chocolate-cosmos)] bg-opacity-80 rounded-lg shadow-xl backdrop-blur-md">
-      <h2 className="text-3xl font-bold text-[color:var(--rose-quartz)] text-center mb-8">
+    <section className="py-16 px-6">
+      <h2
+        className="text-4xl font-bold text-[color:var(--quinacridone-magenta)] text-center mb-12"
+        data-aos="fade-up"
+      >
         Témoignages de nos clients
       </h2>
-      <div className="space-y-6">
+      <div className="space-y-8">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-[color:var(--night)] bg-opacity-70 border border-white/20 p-6 rounded-lg shadow-md text-white"
+            className="relative p-6 bg-[color:var(--night)] bg-opacity-70 rounded-lg shadow-lg border border-white/20"
+            data-aos="fade-up"
+            data-aos-delay={index * 200} 
           >
-            <p className="italic text-lg">&apost;{testimonial.comment}&apost;</p>
-            <p className="mt-4 text-right font-semibold text-[color:var(--rose-quartz)]">
+            {/* Decoración superior */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-8 h-8 text-[color:var(--quinacridone-magenta)]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M20 12H4"
+                />
+              </svg>
+            </div>
+            {/* Contenido del testimonio */}
+            <p className="italic text-lg text-[color:var(--rose-quartz)]">
+              &quot;{testimonial.comment}&quot;
+            </p>
+            <p className="mt-4 text-right font-semibold text-[color:var(--quinacridone-magenta)]">
               - {testimonial.name}
             </p>
           </div>
