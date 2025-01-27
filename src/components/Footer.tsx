@@ -1,8 +1,8 @@
 import React from "react";
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaTiktok } from "react-icons/fa";
 
 const Footer = () => (
-  <footer className="bg-[#0C1212] text-[#BFADB4] py-12">
+  <footer className="bg-[#0C1212] text-[#BFADB4] py-12 border-t-4 border-[#824E5F]">
     <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
       {/* Contact Section */}
       <div className="mb-6 md:mb-0 text-center md:text-left">
@@ -30,12 +30,12 @@ const Footer = () => (
       {/* Social Media Section */}
       <div className="flex space-x-6 mb-6 md:mb-0">
         <a
-          href="https://www.instagram.com/rose.reverie"
+          href="https://www.tiktok.com/@rose.reverie"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#BFADB4] hover:text-[#824E5F] transition-colors duration-300"
         >
-          <FaInstagram size={24} />
+          <FaTiktok size={24} />
         </a>
         <a
           href="https://www.facebook.com/rose.reverie"
