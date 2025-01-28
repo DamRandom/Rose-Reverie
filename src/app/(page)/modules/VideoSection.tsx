@@ -1,16 +1,28 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import { AiOutlineLike, AiOutlineComment, AiOutlineShareAlt } from "react-icons/ai";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Importar los estilos de AOS
+import "aos/dist/aos.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const VideoSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // Duración de la animación
-      once: true, // Para que solo se ejecute una vez
-    });
+    // Configurar la detección de dispositivos móviles
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // 768px es el límite para dispositivos móviles
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    AOS.init({ duration: 1000, once: true });
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const videos = [
@@ -31,6 +43,16 @@ const VideoSection = () => {
     },
   ];
 
+  // Configuración del carrusel
+  const settings = {
+    dots: true, // Muestra los indicadores (los "puntos" abajo)
+    infinite: true, // Desplazamiento infinito
+    speed: 500, // Velocidad del cambio
+    slidesToShow: 1, // Muestra un video por diapositiva
+    slidesToScroll: 1, // Desplaza uno por uno
+    arrows: false, // Oculta las flechas en la versión móvil
+  };
+
   return (
     <section className="bg-[#0C1212] text-[#BFADB4] py-10">
       <div className="container mx-auto px-6">
@@ -40,53 +62,105 @@ const VideoSection = () => {
         <p className="text-center text-lg text-[#D3B6B7] mb-12" data-aos="fade-up" data-aos-delay="200">
           Explorez nos vidéos pour découvrir les dernières tendances et techniques qui sublimeront votre look.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              className="relative group overflow-hidden rounded-lg bg-[#2a2a2a] transition-transform duration-300 hover:scale-105"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              {/* Video */}
-              <div className="relative w-full h-56">
-                <video
-                  src={video.videoSrc}
-                  className="w-full h-full object-cover rounded-t-lg"
-                  controls
-                />
-              </div>
-              {/* Content */}
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-[#BFADB4]" data-aos="fade-up">
-                  {video.title}
-                </h3>
-                {/* Buttons */}
-                <div className="flex justify-between items-center mt-4 space-x-4">
-                  <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
-                    <AiOutlineLike className="text-xl mr-2" />
-                    <span className="text-sm font-medium">J&apos;aime</span>
-                  </button>
-                  <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
-                    <AiOutlineComment className="text-xl mr-2" />
-                    <span className="text-sm font-medium">Commenter</span>
-                  </button>
-                  <button
-                    onClick={() =>
-                      navigator.share
-                        ? navigator.share({ url: video.videoSrc, title: video.title })
-                        : alert("Le partage n'est pas pris en charge par ce navigateur")
-                    }
-                    className="flex items-center text-[#824E5F] hover:text-[#501823]"
-                  >
-                    <AiOutlineShareAlt className="text-xl mr-2" />
-                    <span className="text-sm font-medium">Partager</span>
-                  </button>
+
+        {/* Mostrar carrusel solo en dispositivos móviles */}
+        {isMobile ? (
+          <Slider {...settings}>
+            {videos.map((video) => (
+              <div key={video.id} className="px-4">
+                {/* Video */}
+                <div
+                  className="relative group overflow-hidden rounded-lg bg-[#2a2a2a]"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
+                >
+                  <div className="relative w-full h-64">
+                    <video
+                      src={video.videoSrc}
+                      className="w-full h-full object-cover rounded-lg"
+                      controls
+                    />
+                  </div>
+                  {/* Título y Botones */}
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-[#BFADB4]" data-aos="fade-up">
+                      {video.title}
+                    </h3>
+                    <div className="flex justify-between items-center mt-4 space-x-4">
+                      <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
+                        <AiOutlineLike className="text-xl mr-2" />
+                        <span className="text-sm font-medium">J&apos;aime</span>
+                      </button>
+                      <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
+                        <AiOutlineComment className="text-xl mr-2" />
+                        <span className="text-sm font-medium">Commenter</span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          navigator.share
+                            ? navigator.share({ url: video.videoSrc, title: video.title })
+                            : alert("Le partage n'est pas pris en charge par ce navigateur")
+                        }
+                        className="flex items-center text-[#824E5F] hover:text-[#501823]"
+                      >
+                        <AiOutlineShareAlt className="text-xl mr-2" />
+                        <span className="text-sm font-medium">Partager</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {videos.map((video) => (
+              <div
+                key={video.id}
+                className="relative group overflow-hidden rounded-lg bg-[#2a2a2a] transition-transform duration-300 hover:scale-105"
+                data-aos="zoom-in"
+                data-aos-delay="300"
+              >
+                {/* Video */}
+                <div className="relative w-full h-56">
+                  <video
+                    src={video.videoSrc}
+                    className="w-full h-full object-cover rounded-t-lg"
+                    controls
+                  />
+                </div>
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-[#BFADB4]" data-aos="fade-up">
+                    {video.title}
+                  </h3>
+                  {/* Buttons */}
+                  <div className="flex justify-between items-center mt-4 space-x-4">
+                    <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
+                      <AiOutlineLike className="text-xl mr-2" />
+                      <span className="text-sm font-medium">J&apos;aime</span>
+                    </button>
+                    <button className="flex items-center text-[#824E5F] hover:text-[#501823]">
+                      <AiOutlineComment className="text-xl mr-2" />
+                      <span className="text-sm font-medium">Commenter</span>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigator.share
+                          ? navigator.share({ url: video.videoSrc, title: video.title })
+                          : alert("Le partage n'est pas pris en charge par ce navigateur")
+                      }
+                      className="flex items-center text-[#824E5F] hover:text-[#501823]"
+                    >
+                      <AiOutlineShareAlt className="text-xl mr-2" />
+                      <span className="text-sm font-medium">Partager</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
