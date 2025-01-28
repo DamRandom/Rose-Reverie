@@ -8,7 +8,7 @@ import SalonHistory from "./modules/SalonHistory";
 import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
 import VideoSection from "./modules/VideoSection";
-import Spinner from "@/components/Spinner"; 
+import Spinner from "@/components/Spinner";
 import OurTeam from "./modules/OurTeam";
 import Feedback from "./modules/Feedback";
 
@@ -16,57 +16,67 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simula la carga de la página o espera la carga de los recursos
     setTimeout(() => {
-      setLoading(false); // Después de 3 segundos (o el tiempo que prefieras), cambiar a false
-    }, 1000); // Ajusta el tiempo de carga si es necesario
+      setLoading(false);
+    }, 1000);
   }, []);
 
   if (loading) {
-    return <Spinner />; // Muestra el spinner mientras se carga
+    return <Spinner />;
   }
 
   return (
     <div className="min-h-screen bg-[#0C1212] text-[#BFADB4] font-[family-name:var(--font-geist-sans)]">
-      <HeroImage />
-      <Navbar />
+      {/* Hero Section */}
+      <header className="relative">
+        <Navbar />
+        <div className="overflow-hidden">
+          <HeroImage />
+        </div>
+      </header>
 
       {/* About Us Section */}
-      <section className="pb-32">
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
         <AboutUs />
       </section>
 
-      {/* Combined Salon History and Hair Services with Parallax Effect */}
+      {/* Parallax Section with Salon History and Hair Services */}
       <section
-        className="relative bg-cover bg-center bg-fixed parallax"
+        className="relative bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/Pink&White/girl-2189247.jpg')",
+          backgroundSize: "cover",
         }}
       >
-        <div className="container mx-auto">
-          {/* Salon History Section */}
-          <SalonHistory />
-        </div>
-
-        <div className="container mx-auto">
-          {/* Hair Services Section */}
-          <HairServices />
+        <div className="bg-black bg-opacity-70 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <SalonHistory />
+          </div>
+          <div>
+            <HairServices />
+          </div>
         </div>
       </section>
 
-      <section>
+      {/* Video Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
         <VideoSection />
       </section>
 
-      <section>
-        <OurTeam/>
+      {/* Our Team Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <OurTeam />
       </section>
 
-      <section>
+      {/* Feedback Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
         <Feedback />
       </section>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="border-t-4 border-[#824E5F]">
+        <Footer />
+      </footer>
     </div>
   );
 }
