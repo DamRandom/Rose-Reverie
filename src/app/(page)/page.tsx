@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroImage from "@/components/HeroImage";
 import AboutUs from "./modules/AboutUs";
-import SalonHistory from "./modules/SalonHistoryDesktop";
+import SalonHistoryDesktop from "./modules/SalonHistoryDesktop";
+import SalonHistoryMobile from "./modules/SalonHistoryMobile";
 import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
 import VideoSection from "./modules/VideoSection";
@@ -71,7 +72,7 @@ export default function Home() {
       >
         <div className="bg-black bg-opacity-70 py-12 px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <SalonHistory />
+            {isMobile ? <SalonHistoryMobile /> : <SalonHistoryDesktop />}
           </div>
           <div>
             <HairServices />
