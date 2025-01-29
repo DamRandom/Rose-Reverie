@@ -8,28 +8,27 @@ export default function OurTeamBubble() {
       name: "Sophie Laurent",
       role: "Styliste Capillaire",
       position: { top: "30%", left: "20%" },
-      aosDelay: 0, // Sin demora para el primero
+      aosDelay: 0,
     },
     {
       name: "Camille Dubois",
       role: "Styliste Capillaire",
       position: { top: "50%", left: "60%" },
-      aosDelay: 200, // Demora para que aparezca después del primero
+      aosDelay: 200,
     },
     {
       name: "Isabelle Morel",
       role: "Spécialiste des Ongles",
       position: { top: "40%", left: "90%" },
-      aosDelay: 400, // Demora para que aparezca después del segundo
+      aosDelay: 400, 
     },
   ];
 
-  // Inicializar AOS
   useEffect(() => {
     AOS.init({
-      duration: 800, // Duración de la animación
-      easing: "ease-in-out", // Efecto de entrada y salida suave
-      once: true, // Solo anima una vez al entrar en pantalla
+      duration: 800,
+      easing: "ease-in-out", 
+      once: true,
     });
   }, []);
 
@@ -37,7 +36,7 @@ export default function OurTeamBubble() {
     <section
       className="relative h-[900px] bg-cover bg-center"
       style={{
-        backgroundImage: "url('/images/Pink&White/adam-winger-fI-TKWjKYls-unsplash.jpg')",
+        backgroundImage: "url('/images/Pink&White/OurTeam.jpg')",
         backgroundPosition: "top",
       }}
     >
