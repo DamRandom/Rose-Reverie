@@ -9,16 +9,37 @@ import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
 import VideoSection from "./modules/VideoSection";
 import Spinner from "@/components/Spinner";
-import OurTeam from "./modules/OurTeam";
+import OurTeamDesktop from "./modules/OurTeamDesktop";
+import OurTeamMobile from "./modules/OurTeamMobile";
 import Feedback from "./modules/Feedback";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    // Simula la carga inicial
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Evita ejecutar en SSR
+    if (typeof window !== "undefined") {
+      const checkScreenSize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+
+      return () => {
+        window.removeEventListener("resize", checkScreenSize);
+      };
+    }
   }, []);
 
   if (loading) {
@@ -63,9 +84,9 @@ export default function Home() {
         <VideoSection />
       </section>
 
-      {/* Our Team Section */}
+      {/* Our Team Section (Responsive) */}
       <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <OurTeam />
+        {isMobile ? <OurTeamMobile /> : <OurTeamDesktop />}
       </section>
 
       {/* Feedback Section */}
