@@ -8,8 +8,11 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Cierra el menú al hacer clic en un enlace (para móviles)
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <nav className="bg-[#0C1212] text-[#BFADB4] shadow-lg">
+    <nav className="bg-[#0C1212] text-[#BFADB4] shadow-lg fixed w-full z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-semibold">
@@ -21,25 +24,19 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Menú de navegación */}
+        {/* Menú de navegación (Escritorio) */}
         <div className="hidden md:flex space-x-6">
-          <Link href="#about" className="text-lg relative group">
-            <span className="hover:text-[#824E5F] transition-colors duration-300">
-              À propos de nous
-            </span>
-            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+          <Link href="#about" className="nav-link">
+            À propos de nous
           </Link>
-          <Link href="#services" className="text-lg relative group">
-            <span className="hover:text-[#824E5F] transition-colors duration-300">
-              Services
-            </span>
-            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+          <Link href="#services" className="nav-link">
+            Services
           </Link>
-          <Link href="#contact" className="text-lg relative group">
-            <span className="hover:text-[#824E5F] transition-colors duration-300">
-              Contact
-            </span>
-            <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+          <Link href="#team" className="nav-link">
+            Notre Équipe
+          </Link>
+          <Link href="#contact" className="nav-link">
+            Contact
           </Link>
         </div>
 
@@ -84,24 +81,18 @@ const Navbar = () => {
       {/* Menú desplegable para dispositivos móviles */}
       {isOpen && (
         <div className="md:hidden bg-[#0C1212] text-[#BFADB4]">
-          <div className="px-6 py-4">
-            <Link href="#about" className="block text-lg relative group py-2">
-              <span className="hover:text-[#824E5F] transition-colors duration-300">
-                À propos de nous
-              </span>
-              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+          <div className="px-6 py-4 flex flex-col space-y-4">
+            <Link href="#about" className="nav-link" onClick={closeMenu}>
+              À propos de nous
             </Link>
-            <Link href="#services" className="block text-lg relative group py-2">
-              <span className="hover:text-[#824E5F] transition-colors duration-300">
-                Services
-              </span>
-              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+            <Link href="#services" className="nav-link" onClick={closeMenu}>
+              Services
             </Link>
-            <Link href="#contact" className="block text-lg relative group py-2">
-              <span className="hover:text-[#824E5F] transition-colors duration-300">
-                Contact
-              </span>
-              <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#824E5F] transition-all duration-300 group-hover:w-full"></span>
+            <Link href="#team" className="nav-link" onClick={closeMenu}>
+              Notre Équipe
+            </Link>
+            <Link href="#contact" className="nav-link" onClick={closeMenu}>
+              Contact
             </Link>
           </div>
         </div>

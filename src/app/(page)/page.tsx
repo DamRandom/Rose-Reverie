@@ -58,12 +58,12 @@ export default function Home() {
       </header>
 
       {/* About Us Section */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
+      <section id='about' className="py-8 px-4 sm:px-6 lg:px-8">
         <AboutUs />
       </section>
 
       {/* Parallax Section with Salon History and Hair Services */}
-      <section
+      <section id='services'
         className="relative bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/Pink&White/girl-2189247.jpg')",
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Our Team Section (Responsive) */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
+      <section id='team' className="py-8 px-4 sm:px-6 lg:px-8">
         {isMobile ? <OurTeamMobile /> : <OurTeamDesktop />}
       </section>
 
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t-4 border-[#824E5F]">
+      <footer id='contact' className="border-t-4 border-[#824E5F]">
         <Footer />
       </footer>
     </div>
