@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroImage from "@/components/HeroImage";
 import AboutUs from "./modules/AboutUs";
-import SalonHistory from "./modules/SalonHistory";
+import SalonHistory from "./modules/SalonHistoryDesktop";
 import Footer from "@/components/Footer";
 import HairServices from "./modules/HairServices";
 import VideoSection from "./modules/VideoSection";
