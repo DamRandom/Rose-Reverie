@@ -1,4 +1,11 @@
 // types/aos.d.ts
 declare module 'aos' {
-  export function init(options?: Record<string, unknown>): void;
+  interface AOSOptions {
+    duration?: number;
+    easing?: string;
+    delay?: number;
+    // Add any other specific properties for AOS options here
+  }
+
+  export function init(options?: AOSOptions): void;
 }
