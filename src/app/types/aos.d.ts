@@ -4,6 +4,7 @@ declare module 'aos' {
     duration?: number;
     easing?: string;
     delay?: number;
+    once?: boolean;
     // Add any other specific properties for AOS options here
   }
 
