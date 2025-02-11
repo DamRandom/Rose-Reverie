@@ -4,7 +4,6 @@ import { FaFacebook, FaTiktok } from "react-icons/fa";
 const Footer = () => (
   <footer className="bg-[#0C1212] text-[#BFADB4] py-12 border-t-4 border-[#824E5F]">
     <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-      {/* Contact Section */}
       <div className="mb-6 md:mb-0 text-center md:text-left">
         <h3 className="text-lg font-semibold text-[#824E5F]">Contactez-nous</h3>
         <ul className="mt-2 space-y-2">
@@ -27,7 +26,6 @@ const Footer = () => (
         </ul>
       </div>
 
-      {/* Social Media Section */}
       <div className="flex space-x-6 mb-6 md:mb-0">
         <a
           href="https://www.tiktok.com/@rose.reverie"
@@ -48,10 +46,9 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Footer Bottom Section */}
     <div className="border-t border-[#333333] mt-8 pt-4 text-center">
       <p className="text-sm">
-        &copy; {new Date().getFullYear()}{" "}
+        &copy; {new Date().getFullYear()} {" "}
         <span className="text-[#824E5F]">Rosé Reverie</span>. Tous droits réservés.
       </p>
     </div>
