@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Testimonials data
 const testimonials = [
   {
     name: "Élodie Martin",
@@ -31,7 +32,7 @@ export default function TestimonialsSection() {
         Témoignages de nos clients
       </h2>
 
-      {/* Contenedor de testimonios */}
+      {/* Testimonials container */}
       <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
         {testimonials.map((testimonial, index) => (
           <div
@@ -40,7 +41,7 @@ export default function TestimonialsSection() {
             data-aos="fade-up"
             data-aos-delay={index * 200}
           >
-            {/* Decoración superior */}
+            {/* Decorative top element */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +59,7 @@ export default function TestimonialsSection() {
               </svg>
             </div>
 
-            {/* Contenido del testimonio */}
+            {/* Testimonial content */}
             <p className="italic text-sm sm:text-base lg:text-lg text-[color:var(--rose-quartz)]">
               &quot;{testimonial.comment}&quot;
             </p>

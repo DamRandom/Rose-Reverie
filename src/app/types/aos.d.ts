@@ -5,7 +5,6 @@ declare module 'aos' {
     easing?: string;
     delay?: number;
     once?: boolean;
-    // Add any other specific properties for AOS options here
   }
 
   export function init(options?: AOSOptions): void;

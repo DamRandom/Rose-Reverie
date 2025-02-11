@@ -20,14 +20,14 @@ export default function OurTeamBubble() {
       name: "Isabelle Morel",
       role: "Spécialiste des Ongles",
       position: { top: "40%", left: "90%" },
-      aosDelay: 400, 
+      aosDelay: 400,
     },
   ];
 
   useEffect(() => {
     AOS.init({
       duration: 800,
-      easing: "ease-in-out", 
+      easing: "ease-in-out",
       once: true,
     });
   }, []);
@@ -40,12 +40,12 @@ export default function OurTeamBubble() {
         backgroundPosition: "top",
       }}
     >
-      {/* Overlay para oscurecer el fondo */}
+      {/* Overlay to darken the background */}
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
-      {/* Contenido */}
+      {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-between px-6">
-        {/* Título en la parte superior */}
+        {/* Title at the top */}
         <div className="flex justify-center pt-16">
           <h2
             className="text-7xl font-bold text-[#501823] text-shadow-lg"
@@ -56,13 +56,13 @@ export default function OurTeamBubble() {
           </h2>
         </div>
 
-        {/* Nombres sobre las posiciones */}
+        {/* Names positioned on the image */}
         <div className="relative w-full h-full mt-10">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              data-aos="fade-up" // Animación tipo fade-up
-              data-aos-delay={member.aosDelay} // Intervalo individual
+              data-aos="fade-up" // Fade-up animation
+              data-aos-delay={member.aosDelay} // Individual delay
               className="absolute text-center"
               style={{
                 top: member.position.top,
@@ -82,11 +82,11 @@ export default function OurTeamBubble() {
           ))}
         </div>
 
-        {/* Párrafo en la esquina inferior */}
+        {/* Paragraph in the bottom-left corner */}
         <div
           className="absolute bottom-10 left-10 bg-white bg-opacity-10 backdrop-blur-md backdrop-brightness-75 border border-white/30 px-6 py-4 rounded-lg shadow-lg max-w-sm"
           data-aos="fade-up"
-          data-aos-delay="600" // Se muestra después de las tarjetas
+          data-aos-delay="600" // Appears after the cards
         >
           <p className="text-sm text-[#BFADB4] text-shadow-md">
             Chez <span className="text-[#824E5F]">Rosé Reverie</span>, nous croyons

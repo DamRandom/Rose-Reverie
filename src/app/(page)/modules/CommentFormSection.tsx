@@ -12,7 +12,7 @@ export default function CommentFormSection() {
 
   return (
     <section className="relative py-8 lg:py-16 px-4 lg:px-8 bg-[#0C1212]">
-      {/* Contenedor de fondo con efecto cristal */}
+      {/* Background container with crystal effect */}
       <div className="relative z-10 backdrop-blur-lg bg-[#0C1212]/60 px-4 lg:px-8 py-6 lg:py-10 rounded-xl shadow-2xl text-center text-[#BFADB4] w-full max-w-md lg:max-w-xl mx-auto border border-[#BFADB4]/20">
         <h2 className="text-2xl lg:text-3xl font-bold text-[#BFADB4] text-shadow-lg mb-6 lg:mb-8">
           Laissez un <span className="text-[#824E5F]">commentaire</span>

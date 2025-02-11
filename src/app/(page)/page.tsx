@@ -19,7 +19,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Simula la carga inicial
+    // Simulate initial loading
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Evita ejecutar en SSR
+    // Prevent execution on the server side
     if (typeof window !== "undefined") {
       const checkScreenSize = () => {
         setIsMobile(window.innerWidth < 768);
@@ -57,13 +57,14 @@ export default function Home() {
         </div>
       </header>
 
-      {/* About Us Section */}
-      <section id='about' className="py-8 px-4 sm:px-6 lg:px-8">
+      {/* About Section */}
+      <section id="about" className="py-8 px-4 sm:px-6 lg:px-8">
         <AboutUs />
       </section>
 
-      {/* Parallax Section with Salon History and Hair Services */}
-      <section id='services'
+      {/* Parallax Section with Salon History and Services */}
+      <section
+        id="services"
         className="relative bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/Pink&White/girl-2189247.jpg')",
@@ -86,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Our Team Section (Responsive) */}
-      <section id='team' className="py-8 px-4 sm:px-6 lg:px-8">
+      <section id="team" className="py-8 px-4 sm:px-6 lg:px-8">
         {isMobile ? <OurTeamMobile /> : <OurTeamDesktop />}
       </section>
 
@@ -96,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id='contact' className="border-t-4 border-[#824E5F]">
+      <footer id="contact" className="border-t-4 border-[#824E5F]">
         <Footer />
       </footer>
     </div>

@@ -17,14 +17,14 @@ export default function OurTeamMobile() {
     {
       name: "Isabelle Morel",
       role: "Spécialiste des Ongles",
-      aosDelay: 400, 
+      aosDelay: 400,
     },
   ];
 
   useEffect(() => {
     AOS.init({
       duration: 800,
-      easing: "ease-in-out", 
+      easing: "ease-in-out",
       once: true,
     });
   }, []);
@@ -38,12 +38,12 @@ export default function OurTeamMobile() {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay para oscurecer el fondo */}
+      {/* Overlay to darken the background */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-      {/* Contenido */}
+      {/* Content */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center">
-        {/* Título */}
+        {/* Title */}
         <h2
           className="text-4xl font-bold text-[#501823] text-shadow-lg mb-8"
           data-aos="fade-up"
@@ -51,7 +51,7 @@ export default function OurTeamMobile() {
           Notre Équipe
         </h2>
 
-        {/* Lista de Miembros del Equipo */}
+        {/* Team Members List */}
         <div className="w-full flex flex-col gap-6">
           {teamMembers.map((member, index) => (
             <div
@@ -70,7 +70,7 @@ export default function OurTeamMobile() {
           ))}
         </div>
 
-        {/* Descripción en la parte inferior */}
+        {/* Description at the bottom */}
         <div
           className="mt-8 bg-white bg-opacity-10 backdrop-blur-md backdrop-brightness-75 border border-white/30 px-6 py-4 rounded-lg shadow-lg max-w-xs"
           data-aos="fade-up"

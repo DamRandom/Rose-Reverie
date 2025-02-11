@@ -18,8 +18,10 @@ const SalonHistoryMobile = () => {
         }}
         data-aos="fade-up"
       >
+        {/* Overlay to darken the background */}
         <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-lg rounded-lg"></div>
 
+        {/* Content Section */}
         <div className="relative z-10 text-center">
           <h2 className="text-3xl font-bold text-[#a36f80] mb-4 text-shadow-lg">
             Notre Histoire

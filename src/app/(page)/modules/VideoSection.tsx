@@ -12,9 +12,9 @@ const VideoSection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Configurar la detección de dispositivos móviles
+    // Detect mobile devices
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // 768px es el límite para dispositivos móviles
+      setIsMobile(window.innerWidth <= 768); // 768px is the breakpoint for mobile devices
     };
 
     handleResize();
@@ -43,14 +43,14 @@ const VideoSection = () => {
     },
   ];
 
-  // Configuración del carrusel
+  // Carousel settings
   const settings = {
-    dots: true, // Muestra los indicadores (los "puntos" abajo)
-    infinite: true, // Desplazamiento infinito
-    speed: 500, // Velocidad del cambio
-    slidesToShow: 1, // Muestra un video por diapositiva
-    slidesToScroll: 1, // Desplaza uno por uno
-    arrows: false, // Oculta las flechas en la versión móvil
+    dots: true, // Show indicators (dots below the carousel)
+    infinite: true, // Infinite scrolling
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Show one video per slide
+    slidesToScroll: 1, // Scroll one by one
+    arrows: false, // Hide arrows on mobile version
   };
 
   return (
@@ -63,7 +63,7 @@ const VideoSection = () => {
           Explorez nos vidéos pour découvrir les dernières tendances et techniques qui sublimeront votre look.
         </p>
 
-        {/* Mostrar carrusel solo en dispositivos móviles */}
+        {/* Show carousel only on mobile devices */}
         {isMobile ? (
           <Slider {...settings}>
             {videos.map((video) => (
@@ -81,7 +81,7 @@ const VideoSection = () => {
                       controls
                     />
                   </div>
-                  {/* Título y Botones */}
+                  {/* Title and Buttons */}
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-[#BFADB4]" data-aos="fade-up">
                       {video.title}

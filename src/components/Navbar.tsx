@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Ferme le menu lorsqu'un lien est cliqué (pour mobiles)
+  // Closes the menu when a link is clicked (for mobile)
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -24,7 +24,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Menu de navigation (Bureau) */}
+        {/* Navigation menu (Desktop) */}
         <div className="hidden md:flex space-x-6">
           <Link href="#about" className="nav-link">
             À propos de nous
@@ -40,7 +40,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Icône du menu pour les appareils mobiles */}
+        {/* Menu icon for mobile devices */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-[#BFADB4]">
             {isOpen ? (
@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu déroulant pour les appareils mobiles */}
+      {/* Dropdown menu for mobile devices */}
       {isOpen && (
         <div className="md:hidden bg-[#0C1212] text-[#BFADB4]">
           <div className="px-6 py-4 flex flex-col space-y-4">

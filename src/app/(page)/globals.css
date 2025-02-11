@@ -22,7 +22,7 @@ body {
 
 .parallax-container {
   position: relative;
-  height: 100vh; /* Esto asegura que la imagen ocupe toda la altura de la ventana */
+  height: 100vh; 
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@ body {
   z-index: 1;
 }
 
-/* Desplazamiento de la imagen con el scroll */
+/* Image scroll effect */
 .parallax-container {
   animation: parallax 10s linear infinite;
 }
@@ -62,11 +62,11 @@ body {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(10vh); /* Puedes ajustar este valor para hacer el movimiento más o menos pronunciado */
+    transform: translateY(10vh);
   }
 }
 
-/* Estilos personalizados para sombras en el texto */
+/* Custom styles for text shadows */
 .text-shadow-lg {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
