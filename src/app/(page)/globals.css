@@ -99,3 +99,8 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
