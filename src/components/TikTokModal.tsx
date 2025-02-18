@@ -7,17 +7,11 @@ export default function TikTokModal() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const halfPage = document.body.scrollHeight / 2;
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 2000); // Muestra el modal después de 2 segundos
 
-      if (scrollPosition >= halfPage) {
-        setShowModal(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!showModal) return null;
