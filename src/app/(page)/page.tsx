@@ -13,6 +13,7 @@ import Spinner from "@/components/Spinner";
 import OurTeamDesktop from "./modules/OurTeamDesktop";
 import OurTeamMobile from "./modules/OurTeamMobile";
 import Feedback from "./modules/Feedback";
+import TikTokModal from "@/components/TikTokModal";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,8 @@ export default function Home() {
           <HeroImage />
         </div>
       </header>
+
+      <TikTokModal />
 
       {/* About Section */}
       <section id="about" className="py-8 px-4 sm:px-6 lg:px-8">
