@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,11 +17,8 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-semibold">
-          <Link
-            href="/"
-            className="hover:text-[#824E5F] transition-colors duration-300"
-          >
-            Rosé Reverie
+          <Link href="/" className="hover:opacity-80 transition-opacity duration-300">
+            <Image src="/logo/logo.png" alt="Rosé Reverie Logo" width={100} height={40} />
           </Link>
         </div>
 
